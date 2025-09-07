@@ -1,0 +1,93 @@
+.about-us-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+.about-us-section {
+  background-image: url('https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=1920&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  color: white;
+}
+
+.about-us-content {
+  padding: 1rem 7rem;
+  border-radius: 10px;
+}
+
+.about-us-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.origin-story{
+  padding: 5rem 7rem;
+  
+}
+
+.origin-story h2{
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.origin-story p{
+  font-size: 1.2rem;
+  color: #333;
+  text-align: justify;
+}
+
+.origin-story-1st p{
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+  .about-us-content {
+    padding: 1rem 4rem; 
+  }
+
+  .origin-story {
+    padding: 4rem 4rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-section {
+      height: 400px; 
+      justify-content: center; 
+  }
+
+  .about-us-content h1 {
+    font-size: 2.5rem; 
+  }
+  .origin-story {
+      padding: 3rem 2rem; 
+  }
+
+}
+
+@media (max-width: 480px) {
+  .about-us-section {
+      height: 300px; 
+  }
+
+  .about-us-content h1 {
+      font-size: 2rem; 
+  }
+
+  .origin-story h2 {
+      font-size: 1.5rem; 
+  }
+
+  .origin-story p {
+      font-size: 1rem; 
+  }
+}

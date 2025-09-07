@@ -1,0 +1,51 @@
+.admin-approval-page {
+    padding: 3rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .admin-approval-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  .success-message {
+    color: #4CAF50;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #e8f5e9;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+  }
+  
+  @media (max-width: 1200px) {
+    .admin-approval-page {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-approval-page {
+      padding: 1rem;
+    }
+  
+    .admin-approval-title {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-approval-page {
+      padding: 0.75rem;
+    }
+  
+    .admin-approval-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  }

@@ -1,0 +1,95 @@
+.tournament-bracket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.round-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.match {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.team {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.team span {
+  flex: 1;
+}
+
+.score {
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+}
+
+.team input {
+  width: 50px;
+  padding: 0.25rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.edit-scores-btn,
+.save-scores-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.edit-scores-btn:hover,
+.save-scores-btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .tournament-bracket {
+    padding: 1rem;
+  }
+
+  .match {
+    width: 90%;
+  }
+}

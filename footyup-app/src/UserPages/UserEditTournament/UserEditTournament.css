@@ -1,0 +1,238 @@
+.user-edit-tournament-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}
+
+.user-edit-tournament-content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-edit-tournament-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.user-edit-tournament-title {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+}
+
+.user-edit-tournament-title-input {
+    font-size: 2rem;
+    color: #333;
+    width: 50%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.user-edit-delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.user-edit-delete-button:hover {
+    background-color: #c82333;
+}
+
+.user-edit-edit-button {
+    background-color: #28a745;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.user-edit-edit-button:hover {
+    background-color: #218838;
+}
+
+.user-edit-tournament-details-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.user-edit-tournament-info {
+    margin-bottom: 1.5rem;
+}
+
+.user-edit-tournament-field {
+    margin-bottom: 1.5rem;
+}
+
+.user-edit-tournament-field label {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.user-edit-tournament-field input,
+.user-edit-tournament-field textarea{
+    width: 80%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.user-edit-tournament-field select{
+    width: 50%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.user-edit-tournament-venue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.user-edit-tournament-venue-image {
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.user-edit-tournament-venue-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-edit-tournament-venue-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.user-edit-tournament-venue-address {
+    color: #6c757d;
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.user-edit-tournament-slots-graphic {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.user-edit-tournament-slots-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.user-edit-tournament-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.user-edit-update-button,
+.user-edit-cancel-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-edit-update-button {
+    background-color: #007bff;
+    font-weight: bold;
+    color: white;
+}
+
+.user-edit-update-button:hover {
+    background-color: #0051ff;
+}
+
+.user-edit-cancel-button {
+    background-color: #6c757d;
+    font-weight: bold;
+    color: white;
+}
+
+.user-edit-cancel-button:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 992px) {
+    .user-edit-tournament-details-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .user-edit-tournament-venue {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-edit-tournament-content {
+        padding: 1.5rem;
+    }
+
+    .user-edit-tournament-title,
+    .user-edit-tournament-title-input {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-edit-tournament-content {
+        padding: 1rem;
+    }
+
+    .user-edit-tournament-title,
+    .user-edit-tournament-title-input {
+        font-size: 1.5rem;
+    }
+
+    .user-edit-tournament-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .user-edit-tournament-venue-image {
+        height: 200px;
+    }
+
+    .user-edit-tournament-actions {
+        flex-direction: column;
+    }
+
+    .user-edit-update-button,
+    .user-edit-cancel-button {
+        width: 100%;
+    }
+}

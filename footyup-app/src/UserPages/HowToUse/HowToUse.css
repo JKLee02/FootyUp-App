@@ -1,0 +1,120 @@
+/* How to Play Section */
+.how-to-use-container {
+    width: 100%;
+}
+  
+.how-to-use {
+  background-image: url('https://images.pexels.com/photos/2209/people-men-grass-sport.jpg?auto=compress&cs=tinysrgb&w=1920&h=750&dpr=1');
+  background-size: cover;
+  height: 500px;
+  width: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  color: white;
+}
+
+.how-to-use-content {
+  padding: 1rem 7rem;
+  border-radius: 10px;
+}
+
+.how-to-use-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Steps Section */
+.steps-section {
+  padding: 3rem 7rem;
+  display: flex;
+  justify-content: center;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step-box {
+  text-align: center;
+  flex: 2;
+}
+
+.step-box img {
+  width: 256px;
+  height: 256px;
+  margin-bottom: 2rem;
+}
+
+.step-box h3 {
+  font-size: 1.4rem;
+  color: #333;
+}
+
+/* Additional Sections */
+.additional-section-1 {
+  padding: 2rem 7rem;
+  display: flex;
+  background-color: #f8f9fa;
+  margin-top: 3rem;
+}
+
+.additional-section-2 {
+  padding: 2rem 7rem;
+  display: flex;
+}
+
+.additional-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 2rem;
+}
+
+.image-box img {
+  width: 256px;
+  height: 256px;
+  margin-right: 4rem;
+}
+
+.text-box h2 {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.text-box p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+/*Responsive for mobile*/
+@media (max-width: 768px) {
+  .steps-section, .additional-section-1, .additional-section-2 {
+    padding: 1rem 4rem;  
+  }
+
+  .steps-container, .additional-content {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .step-box, .image-box {
+    text-align: center;
+  }
+
+  .image-box img {
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .text-box {
+    width: 100%;
+  }
+
+  
+}

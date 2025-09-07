@@ -1,0 +1,148 @@
+.user-home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-home-main {
+  margin-top: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 5%;
+}
+
+.user-welcome-text {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+
+.user-subtext {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  color: #6c757d;
+}
+
+.user-home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.user-options-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.option-box {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: calc(33.333% - 2rem);
+  min-width: 250px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 2rem;
+}
+
+.option-box h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.option-box p {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+.option-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.option-btn:hover {
+  background-color: #0051ff;
+}
+
+@media (max-width: 1200px) {
+  .option-box {
+      width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .user-home-main {
+      padding: 1rem;
+  }
+
+  .welcome-text {
+      font-size: 1.8rem;
+      text-align: center;
+  }
+
+  .subtext {
+      font-size: 1.2rem;
+      text-align: center;
+  }
+
+  .options-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .option-box {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-text {
+      font-size: 1.5rem;
+  }
+
+  .subtext {
+      font-size: 1rem;
+  }
+
+  .option-box {
+      padding: 1.5rem;
+  }
+
+  .option-box h3 {
+      font-size: 1.4rem;
+  }
+
+  .option-box p {
+      font-size: 1rem;
+  }
+
+  .option-btn {
+      font-size: 1rem;
+      padding: 0.6rem;
+  }
+}

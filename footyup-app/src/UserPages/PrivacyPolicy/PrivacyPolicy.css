@@ -1,0 +1,65 @@
+.privacy-policy-container {
+    width: 100%;
+  }
+  
+.privacy-policy {
+  background-image: url('https://images.pexels.com/photos/2128220/pexels-photo-2128220.jpeg?auto=compress&cs=tinysrgb&w=1920&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  color: white;
+}
+
+.privacy-policy-content {
+  padding: 1rem 7rem;
+  border-radius: 10px;
+}
+
+.privacy-policy-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-details {
+    padding: 1rem 7rem;
+  }
+  
+  .privacy-details h2, .privacy-details h3, .privacy-details h4 {
+    color: #007bff;
+    margin-top: 3rem;
+  }
+  
+  .privacy-details p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 1rem;
+  }
+  
+  .privacy-details ul {
+    margin-top: 1rem;
+  }
+
+  .privacy-details li{
+    margin-top: 0.2rem;
+    color: #333;
+  }
+  
+  .privacy-details a{
+    text-decoration: none;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .privacy-policy-content {
+      padding: 1rem 2rem;
+    }
+  
+    .privacy-details {
+      padding: 1rem 2rem;
+    }
+  }

@@ -1,0 +1,93 @@
+.contact-us-container {
+    width: 100%;
+  }
+  
+.contact-us {
+  background-image: url('https://images.pexels.com/photos/9517930/pexels-photo-9517930.jpeg?auto=compress&cs=tinysrgb&w=1920&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.contact-us-content {
+  padding: 1rem 7rem;
+  border-radius: 10px;
+  
+}
+
+.contact-us-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Contact Us Page Styling */
+.contact-us-container {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.get-in-touch-text{
+  text-align: center;
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 3rem;
+}
+
+.contact-details-section {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 10rem;
+  border-radius: 2rem;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1.1;
+  text-align: center;
+}
+
+.contact-info h2{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-info p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info a{
+  text-decoration: none;
+  color: #333;
+}
+
+
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .contact-details {
+      flex-direction: column; 
+      align-items: center; 
+  }
+
+  .contact-info {
+      margin-bottom: 2rem;
+  }
+  
+  .get-in-touch-text {
+      font-size: 2rem; /* Adjust font size for mobile */
+  }
+}

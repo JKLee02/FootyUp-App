@@ -1,0 +1,265 @@
+:root {
+  --header-height: 60px;
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --text-color: #333;
+}
+
+.user-team-profile-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa
+}
+
+.user-team-profile-content {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.user-team-profile-title {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  margin-left: 7rem;
+  margin-top: 3rem;
+}
+
+.user-team-profile-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.user-team-profile-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+}
+
+.user-team-profile-placeholder-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.user-team-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.user-team-profile-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.user-team-profile-description,
+.user-team-profile-captain,
+.user-team-profile-members {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.join-team-button {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.join-team-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.dialog-confirm-btn,
+.dialog-cancel-btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dialog-confirm-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.dialog-confirm-btn:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.dialog-cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.dialog-cancel-btn:hover {
+  background-color: #a71d2a;
+}
+
+/* Responsive Design */
+@media (max-width: 1600px) {
+  .user-team-profile-content {
+    max-width: 100%;
+    padding: 2rem 5%;
+  }
+
+  .user-team-profile-dropdown-container {
+    right: 5%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .user-team-profile-content {
+    padding: 1.5rem 5%;
+  }
+
+  .user-team-profile-title {
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 992px) {
+  .user-team-profile-info-container {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-team-profile-content {
+    padding: 1rem 5%;
+  }
+
+  .user-team-profile-title {
+    font-size: 1.75rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .user-team-profile-dropdown-container {
+    position: static;
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+  .user-team-profile-dropdown {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .user-team-profile-info-container {
+    padding: 1.5rem;
+  }
+
+  .user-team-profile-placeholder-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .user-team-profile-name {
+    font-size: 1.75rem;
+  }
+
+  .user-team-profile-description,
+  .user-team-profile-captain,
+  .user-team-profile-members {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-team-profile-title {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .user-team-profile-info-container {
+    padding: 1rem;
+  }
+
+  .user-team-profile-placeholder-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .user-team-profile-name {
+    font-size: 1.5rem;
+  }
+
+  .user-team-profile-description,
+  .user-team-profile-captain,
+  .user-team-profile-members {
+    font-size: 1rem;
+  }
+
+  .join-team-button {
+    width: 100%;
+    padding: 0.6rem;
+  }
+
+  .dialog-box {
+    padding: 1.5rem;
+  }
+
+  .dialog-confirm-btn,
+  .dialog-cancel-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

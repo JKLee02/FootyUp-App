@@ -1,0 +1,48 @@
+/* General container for venue details */
+.user-venue-details-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Venue Name at the top */
+.user-venue-name {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-left: 7rem;
+}
+
+/* Placeholder for the venue image */
+.user-venue-image-placeholder {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.user-venue-image {
+    width: 600px;
+    height: 350px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Address and Description Section */
+.user-venue-info {
+    margin-top: 2rem;
+
+}
+
+.user-venue-address,
+.user-venue-description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.user-venue-address strong,
+.user-venue-description strong {
+    font-weight: bold;
+    color: #333;
+}
