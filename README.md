@@ -2,7 +2,7 @@
 
 A football team development and tournament hosting system to promote inclusivity.
 
-# Main Screenshots
+## Main Screenshots
 ### Landing Page
 <img width="1920" height="917" alt="User Landing Page" src="https://github.com/user-attachments/assets/21e54285-1dfc-4ae8-b3d9-fa7825f902fb" />
 
@@ -27,7 +27,7 @@ A football team development and tournament hosting system to promote inclusivity
 ### Profile Page
 <img width="1920" height="912" alt="User Profile" src="https://github.com/user-attachments/assets/dee6db75-7ccb-486c-b352-ce5868f15d40" />
 
-# Main Features
+## Main Features
 - Register a new account
 - Login into the web system 
 - View own player and team profile
