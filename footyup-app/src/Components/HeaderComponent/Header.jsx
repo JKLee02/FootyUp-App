@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -16,8 +16,9 @@ function Header() {
           <Link to="/">FootyUp</Link>
         </div>
 
-        <button 
-          className={`hamburger ${isNavOpen ? 'open' : ''}`} 
+        {/* Hamburger nav for mobile and navigation bar for desktop */}
+        <button
+          className={`hamburger ${isNavOpen ? "open" : ""}`}
           onClick={toggleNav}
           aria-expanded={isNavOpen}
           aria-label="Toggle navigation"
@@ -27,21 +28,41 @@ function Header() {
           <span></span>
         </button>
 
-        <nav className={`nav-bar ${isNavOpen ? 'open' : ''}`}>
+        <nav className={`nav-bar ${isNavOpen ? "open" : ""}`}>
           <ul>
-            <li><Link to="/" onClick={toggleNav}>Home</Link></li>
-            <li><Link to="/howtouse" onClick={toggleNav}>How to Use</Link></li>
-            <li><Link to="/aboutus" onClick={toggleNav}>About Us</Link></li>
+            <li>
+              <Link to="/" onClick={toggleNav}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/howtouse" onClick={toggleNav}>
+                How to Use
+              </Link>
+            </li>
+            <li>
+              <Link to="/aboutus" onClick={toggleNav}>
+                About Us
+              </Link>
+            </li>
           </ul>
           <div className="mobile-auth-buttons">
-            <Link to="/signup" className="register-btn" onClick={toggleNav}>Register</Link>
-            <Link to="/login" className="sign-in-btn" onClick={toggleNav}>Sign In</Link>
+            <Link to="/signup" className="register-btn" onClick={toggleNav}>
+              Register
+            </Link>
+            <Link to="/login" className="sign-in-btn" onClick={toggleNav}>
+              Sign In
+            </Link>
           </div>
         </nav>
 
         <div className="desktop-auth-buttons">
-          <Link to="/signup" className="register-btn">Register</Link>
-          <Link to="/login" className="sign-in-btn">Sign In</Link>
+          <Link to="/signup" className="register-btn">
+            Register
+          </Link>
+          <Link to="/login" className="sign-in-btn">
+            Sign In
+          </Link>
         </div>
       </div>
     </header>

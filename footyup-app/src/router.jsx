@@ -122,7 +122,6 @@ export const router = createBrowserRouter([
       errorElement: <div>404 Not Found</div>
     },
 
-    // Need to add /:teamId later
     {
       path: '/userupdateteam/:teamId',
       element: <UserUpdateTeam></UserUpdateTeam>,

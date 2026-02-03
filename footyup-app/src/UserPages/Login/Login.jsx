@@ -106,7 +106,7 @@ function Login() {
                             <hr className="line-decoration" />
 
                             <div className="signup-link">
-                                <p>Don't have an account? <a href="/signup">Sign Up Here</a></p>
+                                <p>Don&apos;t have an account? <a href="/signup">Sign Up Here</a></p>
                             </div>
                         </form>
                     </div>
