@@ -8,8 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Specific folder/files
-.env/
-.env.local/
+.env*
 
 node_modules/
 dist
