@@ -4,28 +4,36 @@ A football team development and tournament hosting system to promote inclusivity
 
 ## Main Screenshots
 ### Landing Page
-<img width="1920" height="917" alt="User Landing Page" src="https://github.com/user-attachments/assets/21e54285-1dfc-4ae8-b3d9-fa7825f902fb" />
+<img width="1887" height="907" alt="Landing Page" src="https://github.com/user-attachments/assets/f270714a-71ed-4658-8c60-f115b66801f9" />
+
 
 ### Signup Page
-<img width="1920" height="916" alt="User Sign Up" src="https://github.com/user-attachments/assets/7185c4e8-f347-40ae-a959-3fd1708e729b" />
+<img width="1865" height="892" alt="Sign Up Page" src="https://github.com/user-attachments/assets/e3b824b5-fa65-4fb8-ac67-16b491b3f07d" />
+
 
 ### Login Page
-<img width="1920" height="923" alt="User Login" src="https://github.com/user-attachments/assets/65bfd688-6bd5-45cb-aa8a-45927281dfd5" />
+<img width="1851" height="915" alt="Login Page" src="https://github.com/user-attachments/assets/7ebd1e99-b176-4a1c-8bb8-3e44e13fd66b" />
+
 
 ### Home Page
-<img width="1920" height="904" alt="User Home Page" src="https://github.com/user-attachments/assets/78fc2d16-0a09-4b01-8705-6b6615b859f5" />
+<img width="1900" height="910" alt="Home Page" src="https://github.com/user-attachments/assets/0806d02a-b5e2-493c-bfad-d509638613f9" />
+
 
 ### Tournament Page
-<img width="1920" height="913" alt="User Tournament Page" src="https://github.com/user-attachments/assets/f3a6c4ca-6cf6-41f2-9126-c75a8337d1e0" />
+<img width="1878" height="910" alt="Tournament Page" src="https://github.com/user-attachments/assets/e01b3a49-f04e-4d52-b85e-2b92be3dd243" />
+
 
 ### Venue Page
-<img width="1920" height="917" alt="User Venue Page" src="https://github.com/user-attachments/assets/dee9bbb1-9830-4e7a-966f-c3835eeeff35" />
+<img width="1887" height="916" alt="Venue Page" src="https://github.com/user-attachments/assets/a8724b1a-780b-4f07-9744-bc5bb84a944a" />
+
 
 ### Team Page
-<img width="1918" height="919" alt="User Teams Page" src="https://github.com/user-attachments/assets/f48cdc9c-f1b2-4925-bff9-e11f66041ba4" />
+<img width="1883" height="914" alt="Team Page" src="https://github.com/user-attachments/assets/64f81bef-0fa0-4be7-a03e-ff9ea96260d6" />
+
 
 ### Profile Page
-<img width="1920" height="912" alt="User Profile" src="https://github.com/user-attachments/assets/dee6db75-7ccb-486c-b352-ce5868f15d40" />
+<img width="1806" height="886" alt="Profile Page" src="https://github.com/user-attachments/assets/249aea09-60a4-4c5f-ba0d-cadae688813f" />
+
 
 ## Main Features
 - Register a new account
