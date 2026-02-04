@@ -1,18 +1,27 @@
-const express = require("express");
-const mysql = require("mysql2");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
+import express from "express";
+import mysql from "mysql2";
+import cors from "cors";
+import bodyParser from "body-parser";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "http://localhost:5173" }));
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN,
+    credentials: true,
+  }),
+);
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "admin123",
-  database: "footyup_db",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
@@ -747,11 +756,9 @@ app.post("/tournaments", (req, res) => {
     }
 
     if (userResult.length === 0) {
-      return res
-        .status(403)
-        .json({
-          error: "User is not in a team, please join a team to create one",
-        });
+      return res.status(403).json({
+        error: "User is not in a team, please join a team to create one",
+      });
     }
 
     const user = userResult[0];
@@ -799,12 +806,10 @@ app.post("/tournaments", (req, res) => {
             return res.status(500).json({ error: "Database error" });
           }
 
-          res
-            .status(201)
-            .json({
-              message: "Tournament created successfully",
-              tournamentId: result.insertId,
-            });
+          res.status(201).json({
+            message: "Tournament created successfully",
+            tournamentId: result.insertId,
+          });
         },
       );
     });
@@ -968,11 +973,9 @@ app.post("/tournaments/:tournamentId/join", (req, res) => {
     const teamLimit = 4; // This could be a static value or fetched from another table
 
     if (results[0].total_teams >= teamLimit) {
-      return res
-        .status(400)
-        .json({
-          error: `Cannot join this tournament. Maximum number of teams (${teamLimit}) reached.`,
-        });
+      return res.status(400).json({
+        error: `Cannot join this tournament. Maximum number of teams (${teamLimit}) reached.`,
+      });
     }
 
     // Check if the user is in a team
@@ -1107,11 +1110,9 @@ app.post("/tournaments/:tournamentId/join", (req, res) => {
                                 );
                               }
 
-                              res
-                                .status(201)
-                                .json({
-                                  message: "Joined tournament successfully",
-                                });
+                              res.status(201).json({
+                                message: "Joined tournament successfully",
+                              });
                             },
                           );
                         },
@@ -1240,12 +1241,10 @@ app.post("/tournaments/:tournamentId/leave", (req, res) => {
         );
 
         if (hasCompletedMatch || isInFinals) {
-          return res
-            .status(403)
-            .json({
-              error:
-                "Cannot leave. Team has completed matches or is in the finals.",
-            });
+          return res.status(403).json({
+            error:
+              "Cannot leave. Team has completed matches or is in the finals.",
+          });
         }
 
         // Proceed to remove the team if no completed matches found
@@ -1593,6 +1592,8 @@ app.put("/tournaments/:tournamentId/deny", (req, res) => {
 });
 
 //Starting Express server on port 8081
-app.listen(8081, () => {
-  console.log("Listening to port 8081...");
+const PORT = process.env.PORT || 8081;
+
+app.listen(PORT, () => {
+  console.log(`Listening to port ${PORT}...`);
 });
