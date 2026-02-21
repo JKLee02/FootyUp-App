@@ -24,7 +24,7 @@ export default function UserHostTournament() {
       navigate("/login");
     }
 
-    fetch(`http://localhost:8081/uservenue/${venueId}`)
+    fetch(`http://localhost:8081/venue/${venueId}`)
       .then((response) => response.json())
       .then((data) => setVenueData(data))
       .catch((error) => {

@@ -8,7 +8,6 @@ function UserTournaments() {
   const [activeTab, setActiveTab] = useState('all');
   const [allTournaments, setAllTournaments] = useState([]);
   const [createdTournaments, setCreatedTournaments] = useState([]);
-  const [gender, setGender] = useState(null);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedVenue, setSelectedVenue] = useState('all');
   const [selectedGender, setSelectedGender] = useState(null);
@@ -56,7 +55,7 @@ function UserTournaments() {
 
   const fetchVenue = async () => {
     try {
-      const response = await fetch('http://localhost:8081/uservenue'); // Correct endpoint for all venues
+      const response = await fetch('http://localhost:8081/venue'); // Correct endpoint for all venues
       if (!response.ok) {
         throw new Error('Failed to fetch venue');
       }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import UserHeader from '../../Components/UserHeaderComponent/UserHeader';
 import UserBoxContainers from '../../Components/UserBoxContainers/UserBoxContainers';
 import './UserSelectVenue.css';
@@ -9,7 +9,7 @@ function UserSelectVenue() {
 
   // Fetch venues on component mount
   useEffect(() => {
-    fetch('http://localhost:8081/uservenue')
+    fetch('http://localhost:8081/venue')
       .then((response) => {
         if (!response.ok) throw new Error('Failed to fetch venues');
         return response.json();

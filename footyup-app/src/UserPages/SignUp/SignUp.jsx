@@ -44,7 +44,7 @@ function SignUp() {
 
     if (Object.keys(validationErrors).length === 0) {
       axios
-        .post("http://localhost:8081/signup", {
+        .post("http://localhost:8081/auth/signup", {
           firstName,
           lastName,
           email,
@@ -54,7 +54,7 @@ function SignUp() {
           alert("Registration successful!");
           navigate("/login");
         })
-        .catch((err) => {
+        .catch(() => {
           setErrors({ form: "Email already exists. Please try again." });
         });
     }

@@ -11,7 +11,7 @@ function UserVenueDetails() {
 
   // Fetch venue details based on venueId
   useEffect(() => {
-    fetch(`http://localhost:8081/uservenue/${venueId}`)
+    fetch(`http://localhost:8081/venue/${venueId}`)
       .then((response) => {
         if (!response.ok) throw new Error('Venue not found');
         return response.json();

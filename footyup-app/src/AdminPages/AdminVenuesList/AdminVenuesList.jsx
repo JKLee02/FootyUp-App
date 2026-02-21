@@ -9,7 +9,7 @@ function AdminVenuesList() {
 
     // Fetch venues data
     useEffect(() => {
-        axios.get('http://localhost:8081/uservenue')
+        axios.get('http://localhost:8081/venue')
             .then((response) => {
                 setVenues(response.data);
             })

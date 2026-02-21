@@ -40,7 +40,7 @@ function UserTournamentDetails() {
   
         // Fetch Venue Data
         const venueResponse = await fetch(
-          `http://localhost:8081/uservenue/${tournament.tournament_venue_id}`
+          `http://localhost:8081/venue/${tournament.tournament_venue_id}`
         );
         if (!venueResponse.ok) {
           throw new Error("Failed to fetch venue data");
