@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import TournamentBracket from "../../Components/TournamentBracketComponent/TournamentBracket";
+import dayjs from "dayjs";
 import "./UserTournamentDetails.css";
 
 function UserTournamentDetails() {
@@ -14,15 +15,6 @@ function UserTournamentDetails() {
   const [hasJoined, setHasJoined] = useState(false);
   const [isMatchCompleted, setIsMatchCompleted] = useState(false);
   const userId = localStorage.getItem("userId");
-
-  // Date format
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const year = date.getFullYear();
-    return `${day}-${month}-${year}`;
-  };
 
   useEffect(() => {
     const fetchTournamentAndMatchData = async () => {
@@ -191,7 +183,7 @@ function UserTournamentDetails() {
             </p>
             <p>
               <strong>Starting Date:</strong>{" "}
-              {formatDate(tournamentData.tournament_date)}
+              {dayjs(tournamentData.tournament_date).format("DD/MM/YYYY")}
             </p>
             <p>
               <strong>Starting Time:</strong> {tournamentData.tournament_time}

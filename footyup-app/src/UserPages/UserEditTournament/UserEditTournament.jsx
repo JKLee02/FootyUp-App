@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import TournamentBracket from "../../Components/TournamentBracketComponent/TournamentBracket";
+import dayjs from "dayjs";
 import "./UserEditTournament.css";
 
 function UserEditTournament() {
@@ -13,20 +14,11 @@ function UserEditTournament() {
   const navigate = useNavigate();
   const userId = localStorage.getItem("userId");
 
-  // Format date to YYYY-MM-DD
-  const formatDateForInput = (dateString) => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
-  };
-
   useEffect(() => {
     const fetchTournamentData = async () => {
       try {
         const tournamentResponse = await fetch(
-          `http://localhost:8081/tournaments/${tournamentId}`
+          `http://localhost:8081/tournaments/${tournamentId}`,
         );
         if (!tournamentResponse.ok) {
           throw new Error("Failed to fetch tournament data");
@@ -36,7 +28,7 @@ function UserEditTournament() {
         setTournamentStatus(tournament.tournament_status); // Initialize status from the fetched data
 
         const venueResponse = await fetch(
-          `http://localhost:8081/venue/${tournament.tournament_venue_id}`
+          `http://localhost:8081/venue/${tournament.tournament_venue_id}`,
         );
         if (!venueResponse.ok) {
           throw new Error("Failed to fetch venue data");
@@ -58,7 +50,7 @@ function UserEditTournament() {
           `http://localhost:8081/tournaments/${tournamentId}`,
           {
             method: "DELETE",
-          }
+          },
         );
         if (response.ok) {
           alert("Tournament deleted successfully.");
@@ -85,12 +77,14 @@ function UserEditTournament() {
           body: JSON.stringify({
             tournament_title: tournamentData.tournament_title,
             tournament_description: tournamentData.tournament_description,
-            tournament_date: formatDateForInput(tournamentData.tournament_date),
+            tournament_date: dayjs(tournamentData.tournament_date).format(
+              "YYYY-MM-DD",
+            ),
             tournament_time: tournamentData.tournament_time,
             players_gender: tournamentData.players_gender,
             tournament_status: tournamentStatus, // Send the selected status
           }),
-        }
+        },
       );
       if (response.ok) {
         alert("Tournament updated successfully.");
@@ -126,7 +120,8 @@ function UserEditTournament() {
         <div className="user-edit-tournament-header">
           {isEditing ? (
             <input
-              type="text" required
+              type="text"
+              required
               value={tournamentData.tournament_title}
               onChange={(e) =>
                 setTournamentData({
@@ -137,7 +132,9 @@ function UserEditTournament() {
               className="user-edit-tournament-title-input"
             />
           ) : (
-            <h1 className="user-edit-tournament-title">{tournamentData.tournament_title}</h1>
+            <h1 className="user-edit-tournament-title">
+              {tournamentData.tournament_title}
+            </h1>
           )}
           {isEditing && (
             <button className="user-edit-delete-button" onClick={handleDelete}>
@@ -175,17 +172,22 @@ function UserEditTournament() {
                 <strong>Starting Date:</strong>
                 {isEditing ? (
                   <input
-                    type="date" required
-                    value={formatDateForInput(tournamentData.tournament_date)}
+                    type="date"
+                    required
+                    value={dayjs(tournamentData.tournament_date).format(
+                      "YYYY-MM-DD",
+                    )}
                     onChange={(e) =>
                       setTournamentData({
                         ...tournamentData,
                         tournament_date: e.target.value,
                       })
                     }
-                    />
+                  />
                 ) : (
-                <p>{formatDateForInput(tournamentData.tournament_date)}</p>
+                  <p>
+                    {dayjs(tournamentData.tournament_date).format("YYYY-MM-DD")}
+                  </p>
                 )}
               </label>
             </div>
@@ -194,7 +196,8 @@ function UserEditTournament() {
                 <strong>Starting Time:</strong>
                 {isEditing ? (
                   <input
-                    type="time" required
+                    type="time"
+                    required
                     value={tournamentData.tournament_time}
                     onChange={(e) =>
                       setTournamentData({
@@ -256,8 +259,12 @@ function UserEditTournament() {
                 className="user-edit-tournament-venue-img"
               />
             </div>
-            <h2 className="user-edit-tournament-venue-name">{venueData.venue_name}</h2>
-            <p className="user-edit-tournament-venue-address">{venueData.venue_address}</p>
+            <h2 className="user-edit-tournament-venue-name">
+              {venueData.venue_name}
+            </h2>
+            <p className="user-edit-tournament-venue-address">
+              {venueData.venue_address}
+            </p>
           </div>
         </div>
 
@@ -274,7 +281,10 @@ function UserEditTournament() {
 
         <div className="user-edit-tournament-bracket">
           <h2>Tournament Bracket</h2>
-          <TournamentBracket tournamentId={tournamentId} isCreator={isCreator} />
+          <TournamentBracket
+            tournamentId={tournamentId}
+            isCreator={isCreator}
+          />
         </div>
       </main>
     </div>
