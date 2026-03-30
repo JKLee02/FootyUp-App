@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
+import { auth } from "../../utils/auth";
 import "./UserHostTournament.css";
 
 export default function UserHostTournament() {
@@ -19,7 +20,7 @@ export default function UserHostTournament() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = auth.getUserToken();
     if (!token) {
       navigate("/login");
     }
@@ -44,7 +45,7 @@ export default function UserHostTournament() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userId = localStorage.getItem("userId");
+      const userId = auth.getUserId();
       const response = await fetch("http://localhost:8081/tournaments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

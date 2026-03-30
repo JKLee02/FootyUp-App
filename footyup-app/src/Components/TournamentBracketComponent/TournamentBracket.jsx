@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { auth } from '../../utils/auth';
 import './TournamentBracket.css';
 
 const TournamentBracket = ({ tournamentId, isCreator }) => {
@@ -64,7 +66,7 @@ const TournamentBracket = ({ tournamentId, isCreator }) => {
         body: JSON.stringify({
           score_team_1: match.score1,
           score_team_2: match.score2,
-          userId: localStorage.getItem('userId')
+          userId: auth.getUserId()
         }),
       });
 
@@ -184,6 +186,11 @@ const TournamentBracket = ({ tournamentId, isCreator }) => {
       {renderRounds()}
     </div>
   );
+};
+
+TournamentBracket.propTypes = {
+  tournamentId: PropTypes.string.isRequired,
+  isCreator: PropTypes.bool.isRequired,
 };
 
 export default TournamentBracket;

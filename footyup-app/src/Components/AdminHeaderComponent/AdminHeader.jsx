@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../../utils/auth';
 import './AdminHeader.css';
 
 function AdminHeader() {
   const navigate = useNavigate();
 
-  // State to manage whether the navigation menu is open
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  // Toggle function to open/close the navigation menu
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
 
-  // Check for admin session token on page load
   useEffect(() => {
-    const adminToken = localStorage.getItem('adminToken');
-    if (!adminToken) {
-      navigate('/adminlogin'); // Redirect to login if no token exists
+    if (!auth.isAdminAuthenticated()) {
+      navigate('/adminlogin');
     }
   }, [navigate]);
 
-  // Handle admin logout
   const handleLogout = () => {
-    // Clear session storage
-    localStorage.removeItem('adminToken');
-    localStorage.removeItem('adminRefreshToken');
-    localStorage.removeItem('admin_name');
-
-    // Redirect to login page
+    auth.clearAdminSession();
     navigate('/adminlogin');
   };
 
@@ -42,7 +33,7 @@ function AdminHeader() {
         {/* Hamburger menu for mobile */}
         <button 
           className={`admin-hamburger ${isNavOpen ? 'open' : ''}`} 
-          onClick={toggleNav} // Call toggleNav when clicked
+          onClick={toggleNav}
           aria-expanded={isNavOpen}
           aria-label="Toggle navigation"
         >

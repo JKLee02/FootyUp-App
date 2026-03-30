@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UserHeader from '../../Components/UserHeaderComponent/UserHeader';
 import UserBoxContainers from '../../Components/UserBoxContainers/UserBoxContainers';
+import { auth } from '../../utils/auth';
 import './UserTeam.css';
 
 function UserTeam() {
-  const [teams, setTeams] = useState([]); // Store all teams
+  const [teams, setTeams] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -14,8 +15,8 @@ function UserTeam() {
 useEffect(() => {
   const checkUserTeam = async () => {
     setIsLoading(true);
-    const token = localStorage.getItem('token');
-    const userId = localStorage.getItem('userId');
+    const token = auth.getUserToken();
+    const userId = auth.getUserId();
 
     if (!token || !userId) {
       navigate('/login');

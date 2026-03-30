@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import UserHeader from '../../Components/UserHeaderComponent/UserHeader';
+import { auth } from '../../utils/auth';
 import './UserUpdateTeam.css';
 
 function UserUpdateTeam() {
@@ -21,7 +22,7 @@ function UserUpdateTeam() {
         return;
       }
       try {
-        const userId = localStorage.getItem('userId');
+        const userId = auth.getUserId();
         if (!userId) {
           console.error('No user ID found');
           navigate('/login');
@@ -71,7 +72,7 @@ function UserUpdateTeam() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userId = localStorage.getItem('userId');
+      const userId = auth.getUserId();
       const response = await fetch(`http://localhost:8081/teams/${teamId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },

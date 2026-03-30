@@ -3,17 +3,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import UserBoxContainers from "../../Components/UserBoxContainers/UserBoxContainers";
 import UserTeamDropdownMenu from "../../Components/UserTeamDropdownMenuComponent/UserTeamDropdownMenu";
+import { auth } from "../../utils/auth";
 import "./UserViewMembers.css";
 
 function UserViewMembers() {
-  const [dropdownAction, setDropdownAction] = useState(""); // Track dropdown selection
+  const [dropdownAction, setDropdownAction] = useState("");
   const [teamData, setTeamData] = useState(null);
   const [members, setMembers] = useState([]);
-  const [isCaptain, setIsCaptain] = useState(false); // State to store if user is captain
-  const { teamId } = useParams(); // Get the team ID from the URL
+  const [isCaptain, setIsCaptain] = useState(false);
+  const { teamId } = useParams();
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem('userId'); // Get current user ID
+  const userId = auth.getUserId();
 
   useEffect(() => {
     const fetchTeamData = async () => {
@@ -22,7 +23,7 @@ function UserViewMembers() {
         return;
       }
       try {
-        const userId = localStorage.getItem('userId');
+        const userId = auth.getUserId();
         if (!userId) {
           console.error('No user ID found');
           navigate('/login');

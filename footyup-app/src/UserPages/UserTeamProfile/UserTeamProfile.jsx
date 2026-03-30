@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import UserTeamDropdownMenu from '../../Components/UserTeamDropdownMenuComponent/UserTeamDropdownMenu';
+import { auth } from '../../utils/auth';
 import './UserTeamProfile.css';
 
 function UserTeamProfile() {
@@ -20,7 +21,7 @@ function UserTeamProfile() {
         return;
       }
       try {
-        const userId = localStorage.getItem('userId');
+        const userId = auth.getUserId();
         if (!userId) {
           console.error('No user ID found');
           navigate('/login');
@@ -64,7 +65,7 @@ function UserTeamProfile() {
   }, [teamId, navigate]);
 
   const handleTeamAction = async (action) => {
-    const userId = localStorage.getItem('userId');
+    const userId = auth.getUserId();
     if (!userId) {
       navigate('/login');
       return;
@@ -86,7 +87,7 @@ function UserTeamProfile() {
 
   const confirmJoinTeam = async () => {
     try {
-      const userId = localStorage.getItem('userId');
+      const userId = auth.getUserId();
       if (!userId) {
         navigate('/login');
         return;
@@ -99,7 +100,7 @@ function UserTeamProfile() {
         },
         body: JSON.stringify({
           userId: userId,
-          userName: localStorage.getItem('user_firstname')
+          userName: auth.getUserName()
         }),
       });
 
@@ -125,7 +126,7 @@ function UserTeamProfile() {
 
   const confirmLeaveTeam = async () => {
     try {
-      const userId = localStorage.getItem('userId');
+      const userId = auth.getUserId();
       if (!userId) {
         navigate('/login');
         return;
@@ -162,7 +163,7 @@ function UserTeamProfile() {
 
   const confirmDeleteTeam = async () => {
     try {
-      const userId = localStorage.getItem('userId');
+      const userId = auth.getUserId();
       if (!userId) {
         navigate('/login');
         return;
@@ -250,7 +251,7 @@ function UserTeamProfile() {
             <p className="user-team-profile-members">
               <strong>Current No. of Members: </strong> {teamData.members}
             </p>
-            {localStorage.getItem('userId') !== teamData.captain && !hasJoinedTeam && (
+            {auth.getUserId() !== teamData.captain && !hasJoinedTeam && (
               <button className="join-team-button" onClick={handleJoinTeam}>
                 Join Team
               </button>

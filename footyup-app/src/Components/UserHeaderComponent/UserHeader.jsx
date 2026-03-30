@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../../utils/auth';
 import './UserHeader.css';
 
 function UserHeader() {
@@ -11,9 +12,7 @@ function UserHeader() {
   };
 
   const handleLogout = () => {
-    // Clear user data from localStorage
-    localStorage.removeItem('user_firstname');
-    // Redirect to the front page
+    auth.clearUserSession();
     navigate('/');
   };
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import UserBoxContainers from "../../Components/UserBoxContainers/UserBoxContainers";
+import { auth } from "../../utils/auth";
 import "./UserTournaments.css";
 import dayjs from "dayjs";
 
@@ -12,9 +13,9 @@ function UserTournaments() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedVenue, setSelectedVenue] = useState("all");
   const [selectedGender, setSelectedGender] = useState(null);
-  const [venues, setVenues] = useState([]); // For storing venue names
+  const [venues, setVenues] = useState([]);
 
-  const userId = localStorage.getItem("userId"); // Get the logged-in user's ID from localStorage
+  const userId = auth.getUserId();
 
   // Fetch all tournaments with filters applied
   const applyFilters = async () => {

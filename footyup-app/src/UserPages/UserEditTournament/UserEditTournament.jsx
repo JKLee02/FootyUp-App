@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import TournamentBracket from "../../Components/TournamentBracketComponent/TournamentBracket";
+import { auth } from "../../utils/auth";
 import dayjs from "dayjs";
 import "./UserEditTournament.css";
 
@@ -10,9 +11,9 @@ function UserEditTournament() {
   const [tournamentData, setTournamentData] = useState(null);
   const [venueData, setVenueData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [tournamentStatus, setTournamentStatus] = useState("Approved"); // default value
+  const [tournamentStatus, setTournamentStatus] = useState("Approved");
   const navigate = useNavigate();
-  const userId = localStorage.getItem("userId");
+  const userId = auth.getUserId();
 
   useEffect(() => {
     const fetchTournamentData = async () => {

@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import UserHeader from '../../Components/UserHeaderComponent/UserHeader';
 import UserBoxContainers from '../../Components/UserBoxContainers/UserBoxContainers';
+import { auth } from '../../utils/auth';
 import './UserVenue.css';
 import { useNavigate } from 'react-router-dom';
 
 function UserVenue() {
-  const [venues, setVenues] = useState([]); // State to store fetched venue data
+  const [venues, setVenues] = useState([]);
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
   
-  // Fetch all venues on component mount
   useEffect(() => {
-    fetch('http://localhost:8081/venue') // Adjust the URL to match your backend
+    fetch('http://localhost:8081/venue')
       .then((response) => {
         if (!response.ok) throw new Error('Failed to fetch venues');
         return response.json();
@@ -20,9 +20,8 @@ function UserVenue() {
       .then((data) => setVenues(data))
       .catch((err) => setError(err.message));
 
-      const token = localStorage.getItem('token'); // Retrieve the stored token
+      const token = auth.getUserToken();
       if (!token) {
-        // Redirect to login if no token is found
         navigate('/login');
       }
 

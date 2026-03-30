@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import UserTeamDropdownMenu from '../../Components/UserTeamDropdownMenuComponent/UserTeamDropdownMenu';
+import { auth } from '../../utils/auth';
 import './UserTeamSchedule.css';
 
 function UserTeamSchedule() {
@@ -15,7 +16,7 @@ function UserTeamSchedule() {
   const { teamId } = useParams();
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem('userId');
+  const userId = auth.getUserId();
 
   const itemsPerPage = 4;
 

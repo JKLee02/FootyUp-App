@@ -4,6 +4,7 @@ import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import UserProfilePic from "../../assets/UserProfilePic.png";
+import { auth } from "../../utils/auth";
 import "./UserProfile.css";
 
 function UserProfile() {
@@ -30,10 +31,9 @@ function UserProfile() {
 
   // Fetch data from the backend
   useEffect(() => {
-    const token = localStorage.getItem("token");
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem("token");
+        const token = auth.getUserToken();
         if (!token) {
           console.error("No token found");
           navigate("/login");
@@ -50,7 +50,7 @@ function UserProfile() {
 
         if (response.status === 401) {
           console.error("Unauthorized - redirecting to login");
-          localStorage.removeItem("token");
+          auth.clearUserSession();
           navigate("/login");
           return;
         }
@@ -87,6 +87,16 @@ function UserProfile() {
     fetchUserData();
   }, [navigate]);
 
+  // Success message auto disappear after 4 seconds
+  useEffect(() => {
+    if (message && message.type === "success") {
+      const timer = setTimeout(() => {
+        setMessage(null);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
+
   // Form validation
   const validateForm = () => {
     const errors = {};
@@ -114,13 +124,13 @@ function UserProfile() {
   // Save user details after validation
   const handleSave = () => {
     const errors = validateForm();
-    setFormErrors(errors); // Set validation errors
+    setFormErrors(errors);
 
     if (Object.keys(errors).length > 0) {
-      return; // Stop save if errors exist
+      return;
     }
 
-    const token = localStorage.getItem("token");
+    const token = auth.getUserToken();
     fetch("http://localhost:8081/auth/userprofile", {
       method: "PUT",
       headers: {
@@ -133,7 +143,7 @@ function UserProfile() {
       }),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(() => {
         console.log("Profile updated successfully");
         setIsEditable(false); // Disable editing after saving
         setMessage({ text: "Profile updated successfully!", type: "success" });

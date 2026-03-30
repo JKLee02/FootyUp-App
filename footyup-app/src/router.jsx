@@ -21,6 +21,8 @@ import UserEditTournament from "./UserPages/UserEditTournament/UserEditTournamen
 import UserTeamSchedule from "./UserPages/UserTeamSchedule/UserTeamSchedule.jsx"
 import UserViewMembers from "./UserPages/UserViewMembers/UserViewMembers.jsx"
 import UserUpdateTeam from "./UserPages/UserUpdateTeam/UserUpdateTeam.jsx"
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute.jsx"
+import AdminProtectedRoute from "./Components/AdminProtectedRoute/AdminProtectedRoute.jsx"
 
 // importing Admin Components/Pages
 import AdminHome from "./AdminPages/AdminHome/AdminHome.jsx"
@@ -76,91 +78,91 @@ export const router = createBrowserRouter([
     },
 
 // Router for the logged in pages
-// User
+// User Protected Routes
     {
       path: '/userhome',
-      element: <UserHome></UserHome>,
+      element: <ProtectedRoute><UserHome></UserHome></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
     {
       path: '/userprofile',
-      element: <UserProfile></UserProfile>,
+      element: <ProtectedRoute><UserProfile></UserProfile></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
     {
       path: '/uservenue',
-      element: <UserVenue></UserVenue>,
+      element: <ProtectedRoute><UserVenue></UserVenue></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },  
     {
       path: '/uservenuedetails/:venueId',
-      element: <UserVenueDetails></UserVenueDetails>,
+      element: <ProtectedRoute><UserVenueDetails></UserVenueDetails></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },  
     {
       path: '/userteam',
-      element: <UserTeam></UserTeam>,
+      element: <ProtectedRoute><UserTeam></UserTeam></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     //Route for user team profiles with their respective IDs
     {
       path: '/userteamprofile/:teamId',
-      element: <UserTeamProfile></UserTeamProfile>,
+      element: <ProtectedRoute><UserTeamProfile></UserTeamProfile></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/usertournaments',
-      element: <UserTournaments></UserTournaments>,
+      element: <ProtectedRoute><UserTournaments></UserTournaments></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
     
     {
       path: '/usercreateteam',
-      element: <UserCreateTeam></UserCreateTeam>,
+      element: <ProtectedRoute><UserCreateTeam></UserCreateTeam></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/userupdateteam/:teamId',
-      element: <UserUpdateTeam></UserUpdateTeam>,
+      element: <ProtectedRoute><UserUpdateTeam></UserUpdateTeam></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/userselectvenue',
-      element: <UserSelectVenue></UserSelectVenue>,
+      element: <ProtectedRoute><UserSelectVenue></UserSelectVenue></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/userhosttournament/:venueId',
-      element: <UserHostTournament></UserHostTournament>,
+      element: <ProtectedRoute><UserHostTournament></UserHostTournament></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/useredittournament/:tournamentId',
-      element: <UserEditTournament></UserEditTournament>,
+      element: <ProtectedRoute><UserEditTournament></UserEditTournament></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/usertournamentdetails/:tournamentId',
-      element: <UserTournamentDetails></UserTournamentDetails>,
+      element: <ProtectedRoute><UserTournamentDetails></UserTournamentDetails></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/userteamschedule/:teamId',
-      element: <UserTeamSchedule></UserTeamSchedule>,
+      element: <ProtectedRoute><UserTeamSchedule></UserTeamSchedule></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/userviewmembers/:teamId',
-      element: <UserViewMembers></UserViewMembers>,
+      element: <ProtectedRoute><UserViewMembers></UserViewMembers></ProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
     // Original user team profile route, just in case 
@@ -171,7 +173,7 @@ export const router = createBrowserRouter([
     // },
 
 
-// Admin
+// Admin Protected Routes
     {
       path: '/adminlogin',
       element: <AdminLogin></AdminLogin>,
@@ -180,37 +182,37 @@ export const router = createBrowserRouter([
 
     {
       path: '/adminhome',
-      element: <AdminHome></AdminHome>,
+      element: <AdminProtectedRoute><AdminHome></AdminHome></AdminProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/adminteamslist',
-      element: <AdminTeamsList></AdminTeamsList>,
+      element: <AdminProtectedRoute><AdminTeamsList></AdminTeamsList></AdminProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/adminplayerslist',
-      element: <AdminPlayersList></AdminPlayersList>,
+      element: <AdminProtectedRoute><AdminPlayersList></AdminPlayersList></AdminProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/adminmatcheslist',
-      element: <AdminMatchesList></AdminMatchesList>,
+      element: <AdminProtectedRoute><AdminMatchesList></AdminMatchesList></AdminProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/adminvenueslist',
-      element: <AdminVenuesList></AdminVenuesList>,
+      element: <AdminProtectedRoute><AdminVenuesList></AdminVenuesList></AdminProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 
     {
       path: '/adminapproval',
-      element: <AdminApproval></AdminApproval>,
+      element: <AdminProtectedRoute><AdminApproval></AdminApproval></AdminProtectedRoute>,
       errorElement: <div>404 Not Found</div>
     },
 

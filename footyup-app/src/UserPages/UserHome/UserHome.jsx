@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
+import { auth } from "../../utils/auth";
 import "./UserHome.css";
 
 function UserHome() {
-  const [userFirstName, setUserFirstName] = useState(""); // State for username
+  const [userFirstName, setUserFirstName] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Get the user's first name from localStorage when the component mounts
-    const storedFirstName = localStorage.getItem("user_firstname");
+    const storedFirstName = auth.getUserName();
 
     if (storedFirstName) {
-      setUserFirstName(storedFirstName); // Update the state with the user's name
+      setUserFirstName(storedFirstName);
     } else {
-      // Redirect to the front page if no user data is found
       navigate("/");
     }
   }, [navigate]);

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { auth } from "../../utils/auth";
 import "./AdminLogin.css";
 
 function AdminLogin() {
@@ -44,10 +45,7 @@ function AdminLogin() {
       axios
         .post("http://localhost:8081/auth/adminlogin", { email, password })
         .then((res) => {
-          const { accessToken, refreshToken, admin_name } = res.data;
-          localStorage.setItem("adminToken", accessToken);
-          localStorage.setItem("adminRefreshToken", refreshToken);
-          localStorage.setItem("admin_name", admin_name);
+          auth.setAdminSession(res.data);
           navigate("/adminhome");
         })
         .catch((err) => {

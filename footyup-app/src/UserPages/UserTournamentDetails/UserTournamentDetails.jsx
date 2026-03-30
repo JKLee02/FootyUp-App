@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UserHeader from "../../Components/UserHeaderComponent/UserHeader";
 import TournamentBracket from "../../Components/TournamentBracketComponent/TournamentBracket";
+import { auth } from "../../utils/auth";
 import dayjs from "dayjs";
 import "./UserTournamentDetails.css";
 
@@ -14,7 +15,7 @@ function UserTournamentDetails() {
   const [isInTeam, setIsInTeam] = useState(false);
   const [hasJoined, setHasJoined] = useState(false);
   const [isMatchCompleted, setIsMatchCompleted] = useState(false);
-  const userId = localStorage.getItem("userId");
+  const userId = auth.getUserId();
 
   useEffect(() => {
     const fetchTournamentAndMatchData = async () => {

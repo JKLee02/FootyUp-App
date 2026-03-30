@@ -6,6 +6,7 @@ import Header from "../../Components/HeaderComponent/Header.jsx";
 import Footer from "../../Components/FooterComponent/Footer.jsx";
 import "./Login.css";
 import axios from "axios";
+import { auth } from "../../utils/auth";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -46,12 +47,7 @@ function Login() {
       axios
         .post("http://localhost:8081/auth/login", { email, password })
         .then((res) => {
-          const { accessToken, refreshToken, user_firstname, user_id } =
-            res.data;
-          localStorage.setItem("token", accessToken);
-          localStorage.setItem("refreshToken", refreshToken);
-          localStorage.setItem("userId", user_id);
-          localStorage.setItem("user_firstname", user_firstname);
+          auth.setUserSession(res.data);
           navigate("/userhome");
         })
         .catch((err) => {

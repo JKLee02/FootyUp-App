@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserHeader from '../../Components/UserHeaderComponent/UserHeader';
+import { auth } from '../../utils/auth';
 import './UserCreateTeam.css';
 
 function UserCreateTeam() {
@@ -12,9 +13,8 @@ function UserCreateTeam() {
 
   const navigate = useNavigate(); 
 
-  const DEFAULT_IMAGE = '../../default-team-logo.png'; // Path to the generic logo
+  const DEFAULT_IMAGE = '../../default-team-logo.png';
 
-  // Handle changes in text input fields
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -23,15 +23,14 @@ function UserCreateTeam() {
     }));
   };
 
-  // Handle image URL input change
   const handleImageURLChange = (e) => {
-    setTeamImage(e.target.value); // Update the team image URL state
+    setTeamImage(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const userId = localStorage.getItem('userId');
+    const userId = auth.getUserId();
     const response = await fetch(`http://localhost:8081/user/${userId}/team`);
     const data = await response.json();
   
@@ -50,7 +49,7 @@ function UserCreateTeam() {
           description: formData.description,
           teamImage: teamImage,
           captainId: userId,
-          captainName: localStorage.getItem('user_firstname'),
+          captainName: auth.getUserName(),
         }),
       });
   
